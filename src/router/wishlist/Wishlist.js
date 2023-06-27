@@ -20,19 +20,22 @@ function Wishlist() {
           {heart.length ? (
             heart?.map((item) => (
               <div key={item.id} className="wishlist__content">
-                <div className="wishlist__img">
-                  <img src={item.url} alt="" />
+                <div className="wishlist__top">
+                  <div className="wishlist__img">
+                    <img src={item.url} alt="" />
+                  </div>
+                  <Link
+                    to={`/product/${item.id}`}
+                    state={{ item }}
+                    className="wishlist__item-name"
+                  >
+                    {item.title}
+                  </Link>
                 </div>
-                <Link
-                  to={`/product/${item.id}`}
-                  state={{ item }}
-                  className="wishlist__item-name"
-                >
-                  {item.title}
-                </Link>
                 <div className="wishlist__body">
                   <div className="wishlist__body-price">
                     <del>{Math.round(item.price * 1.13)} сум</del>
+                    <p className="media-price">Price:</p>
                     <h2>{item.price} сум</h2>
                     {/* <p>{Math.round((item.price * 1.13) / 12)} so'm/oyiga</p> */}
                   </div>
