@@ -3,7 +3,10 @@ import "./CartWrapper.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart, decrementCart } from "../../context/cart";
 import { addToHeart } from "../../context/heart";
-import { BsTrash3 } from "react-icons/bs";
+import { Link } from "react-router-dom";
+
+import MinusImg from "../../assets/cart/minus.svg";
+import PlusImg from "../../assets/cart/plus.svg";
 
 function CartWrapper({ data }) {
   // const { cart } = useSelector((state) => state.cart);
@@ -60,18 +63,27 @@ function CartWrapper({ data }) {
               </div>
               <div className="left">
                 <div className="left__top">
-                  <h3>{item.title}</h3>
-                  <h2 className="price">{item.price} so'm</h2>
-                  <button
-                    disabled={item.quantity <= 1}
-                    onClick={() => dispatch(decrementCart(item))}
-                  >
-                    -
-                  </button>
-                  &nbsp;&nbsp;&nbsp;
-                  <span>{item.quantity}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button onClick={() => dispatch(addToCart(item))}>+</button>
+                  <Link to={`/product/${item.id}`} state={{ item }}>
+                    {item.title}
+                  </Link>
+                  <div className="left__top-quantity">
+                    <button
+                      disabled={item.quantity <= 1}
+                      onClick={() => dispatch(decrementCart(item))}
+                    >
+                      <img src={MinusImg} alt="" />
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => dispatch(addToCart(item))}>
+                      <img src={PlusImg} alt="" />
+                    </button>
+                  </div>
+                  <div className="left__top-actions">
+                    <h2 className="price">{item.price} сум</h2>
+                    <del>{Math.round(item.price * 1.13)} so'm</del>
+                  </div>
                 </div>
+
                 <div className="left__bottom">
                   <button onClick={() => dispatch(addToHeart(item))}>
                     В избранное
@@ -87,14 +99,16 @@ function CartWrapper({ data }) {
         ))}
       </div>
       <div className="cart__wrapper-form">
-        <h3>Buyurtma berish</h3>
+        <h3>
+          Итого:&nbsp; {data?.reduce((a, b) => a + b.price * b.quantity, 0)} сум
+        </h3>
+        <p>Вы экономите: 0 сум</p>
+        <hr />
         <form id="form" onSubmit={handleSubmit}>
           <input type="text" id="text1" placeholder="Ismingiz" />
           <input type="text" id="text2" placeholder="Raqamingiz" />
           <input type="text" id="text3" placeholder="Manzil" />
-          <h3>
-            Jami: {data?.reduce((a, b) => a + b.price * b.quantity, 0)} som
-          </h3>
+
           <button type="submit">Olish</button>
         </form>
       </div>
