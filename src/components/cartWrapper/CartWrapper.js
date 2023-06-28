@@ -2,6 +2,7 @@ import React from "react";
 import "./CartWrapper.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart, decrementCart } from "../../context/cart";
+import { addToHeart } from "../../context/heart";
 import { BsTrash3 } from "react-icons/bs";
 
 function CartWrapper({ data }) {
@@ -48,32 +49,41 @@ function CartWrapper({ data }) {
   return (
     <div className="cart__wrapper">
       <div className="cart__wrapper-content">
-        <h2>В корзине {cart.length} товара</h2>
+        <p className="cart__wrapper-title">В корзине {cart.length} товара</p>
         {data?.map((item) => (
-          <div key={item.id} className="cart__wrapper-item">
-            <div className="ight">
-              <img src={item.url} width={80} alt="" />
+          <>
+            <div key={item.id} className="cart__wrapper-item">
+              <div className="right">
+                <div className="cart__wrapper-item-img">
+                  <img src={item.url} width={80} alt="" />
+                </div>
+              </div>
+              <div className="left">
+                <div className="left__top">
+                  <h3>{item.title}</h3>
+                  <h2 className="price">{item.price} so'm</h2>
+                  <button
+                    disabled={item.quantity <= 1}
+                    onClick={() => dispatch(decrementCart(item))}
+                  >
+                    -
+                  </button>
+                  &nbsp;&nbsp;&nbsp;
+                  <span>{item.quantity}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button onClick={() => dispatch(addToCart(item))}>+</button>
+                </div>
+                <div className="left__bottom">
+                  <button onClick={() => dispatch(addToHeart(item))}>
+                    В избранное
+                  </button>
+                  <button onClick={() => dispatch(removeFromCart(item.id))}>
+                    Удалить
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="eft">
-              <h3>{item.title}</h3>
-              <h2 className="price">{item.price} so'm</h2>
-              <button
-                disabled={item.quantity <= 1}
-                onClick={() => dispatch(decrementCart(item))}
-              >
-                -
-              </button>
-              &nbsp;&nbsp;&nbsp;
-              <span>{item.quantity}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button onClick={() => dispatch(addToCart(item))}>+</button>
-              <button onClick={() => dispatch(removeFromCart(item.id))}>
-                <BsTrash3 />
-              </button>
-              <br />
-              <br />
-              <br />
-            </div>
-          </div>
+            <hr />
+          </>
         ))}
       </div>
       <div className="cart__wrapper-form">

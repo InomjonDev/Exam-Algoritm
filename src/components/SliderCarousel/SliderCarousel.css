@@ -1,0 +1,47 @@
+.slider {
+  margin-top: 30px;
+}
+
+.slider__container .slidercarousel {
+  border-radius: 12px;
+  border: none;
+  margin-top: 20px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.slider__img {
+  margin: 0;
+}
+
+.slider__img img {
+  width: 130px;
+}
+
+.slider__title {
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.slider__title:hover {
+  color: #da002b;
+  cursor: pointer;
+}
+
+.swiper-slide,
+.swiper-slide-active {
+  width: 200px;
+}
+
+.slidercarousel .swiper-pagination-bullet {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .slidercarousel {
+    display: none;
+  }
+}
