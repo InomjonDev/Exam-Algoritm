@@ -89,8 +89,8 @@ function ProductWrapper({ data, admin }) {
             </p>
             <div className="card__price">
               <div>
-                <del>{Math.round(item.price * 1.13)} so'm</del>
-                <p>{item.price} so'm</p>
+                <del>{Math.round(item.price * 1.13)} сум</del>
+                <p>{item.price} сум</p>
               </div>
             </div>
           </div>

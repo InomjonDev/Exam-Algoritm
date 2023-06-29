@@ -1,16 +1,19 @@
 .skeleton {
+  margin-top: 50px;
   display: flex;
-  gap: 16px;
-  padding: 40px 0;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 35px;
+  padding-bottom: 60px;
 }
 
 .skeleton__item {
-  width: 232px;
+  width: 260px;
+  height: 409px;
 }
 
 .skeleton__img {
-  width: 100%;
+  width: 230px;
   height: 300px;
   background-color: #eee;
   border-radius: 6px;
