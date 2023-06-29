@@ -12,10 +12,11 @@ import {
 import { LuMessageSquare } from "react-icons/lu";
 import { RiBookMarkFill } from "react-icons/ri";
 import { GiRead } from "react-icons/gi";
-import { BsBookFill, BsTwitter } from "react-icons/bs";
+import { BsBookFill, BsTwitter, BsFillBasket3Fill } from "react-icons/bs";
 import { GrFacebookOption } from "react-icons/gr";
 import { FaTelegramPlane } from "react-icons/fa";
 import { addToHeart, removeFromHeart } from "../../context/heart";
+import { addToCart } from "../../context/cart";
 
 function Singlerouter() {
   const location = useLocation();
@@ -103,9 +104,17 @@ function Singlerouter() {
             </div>
           </div>
           <div className="single__left-buttons">
-            <button className="add__cart">Savatga qo'shish</button>
-            <button className="add__bag">
-              Tugmani 1 bosishda xarid qilish
+            <button className="single__left-buttons-btn red">
+              Приобрести в рассрочку
+            </button>
+            <button
+              className="single__left-buttons-btn orange"
+              onClick={() => dispatch(addToCart(item))}
+            >
+              <BsFillBasket3Fill /> <span>Добавить в корзину</span>
+            </button>
+            <button className="single__left-buttons-btn orange-bd">
+              Купить в 1 клик
             </button>
           </div>
         </div>
