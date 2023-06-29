@@ -201,4 +201,10 @@
     margin-bottom: 0;
     margin-left: 0;
   }
+  .wishlist__img {
+    width: 100px;
+    height: 80px;
+  }
+  .wishlist__img img {
+  }
 }
