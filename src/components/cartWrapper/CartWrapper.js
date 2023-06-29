@@ -80,9 +80,11 @@ function CartWrapper({ data }) {
               </div>
               <div className="left">
                 <div className="left__top">
-                  <Link to={`/product/${item.id}`} state={{ item }}>
-                    {item.title}
-                  </Link>
+                  <h2>
+                    <Link to={`/product/${item.id}`} state={{ item }}>
+                      {item.title}
+                    </Link>
+                  </h2>
                   <div className="left__top-quantity">
                     <button
                       disabled={item.quantity <= 1}
