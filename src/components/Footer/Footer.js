@@ -40,7 +40,6 @@ function Footer() {
           <img src={Img} alt="" />
         </div>
       </div>
-      <hr />
       {/* <div
         className="footer__bottom container
       "
