@@ -41,7 +41,7 @@ function Footer() {
         </div>
       </div>
       <hr />
-      <div
+      {/* <div
         className="footer__bottom container
       "
       >
@@ -106,7 +106,7 @@ function Footer() {
             </ul>
           </div>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
