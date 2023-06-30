@@ -32,10 +32,9 @@ function CartWrapper({ data }) {
       my_text += `Narxi : ${item.price} so'm %0A%0A`;
     });
 
-    my_text += `Jami: ${data?.reduce(
-      (a, b) => a + b.price * b.quantity,
-      0
-    )} som %0A`;
+    my_text += `Jami: ${
+      promoCode === "admin" ? `${discountedPrice} сум` : "0 сум"
+    } som %0A`;
 
     let url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}&parse_mode=html`;
     let api = new XMLHttpRequest();

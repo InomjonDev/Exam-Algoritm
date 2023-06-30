@@ -1,8 +1,22 @@
 .footer {
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  /* justify-content: center; */
 
   flex-direction: column;
+  font-family: "Raleway", sans-serif;
+  font-feature-settings: "pnum" on, "lnum" on;
+  background-color: #f2f2f2;
+
+  padding-top: 30px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.footer hr {
+  width: 100%;
+  height: 1px;
+  background-color: #efefef;
 }
 
 .footer__top {
@@ -14,75 +28,47 @@
   padding: 0 0 40px;
 }
 
-.block__1,
-.block__2,
-.block__3,
-.block__4 {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  flex: 1;
-  padding: 20px;
-}
-
-.fw-b {
-  font-weight: bold;
-  font-size: 14px;
-  color: #1f1f26;
-  margin-bottom: 16px;
-}
-
-.mb-19 {
-  margin-bottom: 19px;
-}
-
-.footer__link {
-  font-size: 12px;
-  font-weight: 400;
-  color: #4d4e59;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-
-.footer__link p {
-  margin-left: 5px;
-}
-
-.block__4-top {
+.footer__title {
+  font-size: 20px;
   margin-bottom: 32px;
 }
 
-.block__4-bottom {
+.footer__images {
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 409px;
 }
 
-.block__4-bottom-links a {
-  margin-right: 12px;
+.footer__img {
+  background-color: #fff;
+  width: 170px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.footer__img:hover {
+  background-color: #999;
+  cursor: pointer;
 }
 
 .footer__bottom {
   display: flex;
-  justify-content: space-between;
-  padding: 16px 0;
-
-  border-top: 1px solid #ccc;
+  align-items: flex-start;
 }
 
-.footer__bottom p {
-  font-size: 11px;
-  font-weight: 400;
-  color: #4d4e59;
-}
+/* .footer */
 
-.footer__bottom-links {
-  display: flex;
-  align-items: center;
-}
-.footer__bottom-links a {
-  margin-right: 16px;
+@media screen and (max-width: 1024px) {
+  .footer__top-right img {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -103,5 +89,14 @@
   }
   .footer__bottom-links {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footer__top-left {
+    align-items: flex-start;
+  }
+  .footer__images {
+    max-width: 200px;
   }
 }
